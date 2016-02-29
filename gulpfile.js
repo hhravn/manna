@@ -86,7 +86,7 @@ gulp.task('watch', ['server'], function() {
  gulp.watch('app/**/*', ['build']);
 });
 
-gukp.task('default', ['build']);
+gulp.task('default', ['build']);
 gulp.task('build', ['scripts', 'imagemin', 'copy', 'less']);
 
 gulp.task('deploy', ['build'], function() {
