@@ -1,16 +1,14 @@
 var gulp = require('gulp');
-var ghPages = require('gulp-gh-pages');
+var ignore = require('gulp-ignore');
 
 var less = require('gulp-less');
 var path = require('path');
 
-var clean = require('gulp-rimraf');
 var jshint = require('gulp-jshint');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var imagemin = require('gulp-imagemin');
 var webserver = require('gulp-webserver');
-
 
 var bases = {
  app: 'app/',
@@ -27,27 +25,21 @@ var paths = {
  extras: ['crossdomain.xml', 'humans.txt', 'manifest.appcache', 'robots.txt', 'favicon.ico'],
 };
 
-// Delete the dist directory
-gulp.task('clean', function() {
- return gulp.src(bases.dist)
- .pipe(clean());
-});
-
 // Process scripts and concatenate them into one output file
-gulp.task('scripts', ['clean'], function() {
+gulp.task('scripts', function() {
  gulp.src(paths.scripts, {cwd: bases.app})
  .pipe(gulp.dest(bases.dist + 'js/'));
 });
 
 // Imagemin images and ouput them in dist
-gulp.task('imagemin', ['clean'], function() {
+gulp.task('imagemin', function() {
  gulp.src(paths.images, {cwd: bases.app})
  .pipe(imagemin())
  .pipe(gulp.dest(bases.dist + 'img/'));
 });
 
 // Copy all other files to dist directly
-gulp.task('copy', ['clean'], function() {
+gulp.task('copy', function() {
  // Copy cname
  gulp.src('CNAME', {cwd: bases.app})
  .pipe(gulp.dest(bases.dist));
@@ -77,7 +69,7 @@ gulp.task('server', function() {
   );
 });
 
-gulp.task('less', ['clean'], function () {
+gulp.task('less', function () {
   return gulp.src(paths.less, {cwd: bases.app})
     .pipe(less({
       paths: [ path.join(__dirname, 'less', 'includes') ]
@@ -92,13 +84,3 @@ gulp.task('watch', ['server'], function() {
 
 gulp.task('default', ['build']);
 gulp.task('build', ['scripts', 'imagemin', 'copy', 'less']);
-
-gulp.task('deploy', function() {
-  return gulp.src('./dist/**', {base: bases.dist})
-    .pipe(ghPages());
-});
-
-gulp.task('deploy-dry', function() {
-  return gulp.src('./dist/**', {base: bases.dist})
-    .pipe(ghPages({push: false}));
-});
