@@ -97,3 +97,8 @@ gulp.task('deploy', function() {
   return gulp.src('./dist/**', {base: bases.dist})
     .pipe(ghPages());
 });
+
+gulp.task('deploy-dry', function() {
+  return gulp.src('./dist/**', {base: bases.dist})
+    .pipe(ghPages({push: false}));
+});
