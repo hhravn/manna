@@ -48,9 +48,13 @@ gulp.task('imagemin', ['clean'], function() {
 
 // Copy all other files to dist directly
 gulp.task('copy', ['clean'], function() {
- // Copy html
- gulp.src(paths.html, {cwd: bases.app})
+ // Copy cname
+ gulp.src('CNAME', {cwd: bases.app})
  .pipe(gulp.dest(bases.dist));
+
+  // Copy html
+  gulp.src(paths.html, {cwd: bases.app})
+  .pipe(gulp.dest(bases.dist));
 
  // Copy lib scripts, maintaining the original directory structure
  gulp.src(paths.libs, {cwd: 'app/**'})
@@ -89,7 +93,7 @@ gulp.task('watch', ['server'], function() {
 gulp.task('default', ['build']);
 gulp.task('build', ['scripts', 'imagemin', 'copy', 'less']);
 
-gulp.task('deploy', ['build'], function() {
-  return gulp.src('./dist/**/*', {base: bases.dist})
+gulp.task('deploy', function() {
+  return gulp.src('./dist/**', {base: bases.dist})
     .pipe(ghPages());
 });
