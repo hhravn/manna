@@ -1,11 +1,16 @@
 var gulp = require('gulp');
 var ghPages = require('gulp-gh-pages');
 
+var less = require('gulp-less');
+var path = require('path');
+
 var clean = require('gulp-rimraf');
 var jshint = require('gulp-jshint');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var imagemin = require('gulp-imagemin');
+var webserver = require('gulp-webserver');
+
 
 var bases = {
  app: 'app/',
@@ -47,10 +52,6 @@ gulp.task('copy', ['clean'], function() {
  gulp.src(paths.html, {cwd: bases.app})
  .pipe(gulp.dest(bases.dist));
 
- // Copy styles
- gulp.src(paths.styles, {cwd: bases.app})
- .pipe(gulp.dest(bases.dist + 'css'));
-
  // Copy lib scripts, maintaining the original directory structure
  gulp.src(paths.libs, {cwd: 'app/**'})
  .pipe(gulp.dest(bases.dist));
@@ -60,15 +61,35 @@ gulp.task('copy', ['clean'], function() {
  .pipe(gulp.dest(bases.dist));
 });
 
-// A development task to run anytime a file changes
-gulp.task('watch', function() {
- gulp.watch('app/**/*', ['scripts', 'copy']);
+gulp.task('server', function() {
+  gulp
+    .src(bases.dist)
+    .pipe(webserver({
+      livereload: {
+        enable: true,
+        pollingInterval: 200
+      }
+    })
+  );
 });
 
-// Define the default task as a sequence of the above tasks
-gulp.task('default', ['clean', 'scripts', 'imagemin', 'copy']);
+gulp.task('less', ['clean'], function () {
+  return gulp.src(paths.less, {cwd: bases.app})
+    .pipe(less({
+      paths: [ path.join(__dirname, 'less', 'includes') ]
+    }))
+    .pipe(gulp.dest(bases.dist + 'css'));
+});
 
-gulp.task('deploy', function() {
+// A development task to run anytime a file changes
+gulp.task('watch', ['server'], function() {
+ gulp.watch('app/**/*', ['build']);
+});
+
+gukp.task('default', ['build']);
+gulp.task('build', ['scripts', 'imagemin', 'copy', 'less']);
+
+gulp.task('deploy', ['build'], function() {
   return gulp.src('./app/**/*', {base: 'app'})
     .pipe(ghPages());
 });
