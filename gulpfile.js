@@ -90,6 +90,6 @@ gulp.task('default', ['build']);
 gulp.task('build', ['scripts', 'imagemin', 'copy', 'less']);
 
 gulp.task('deploy', ['build'], function() {
-  return gulp.src('./app/**/*', {base: 'app'})
+  return gulp.src('./dist/**/*', {base: bases.dist})
     .pipe(ghPages());
 });
