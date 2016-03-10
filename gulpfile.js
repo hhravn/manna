@@ -16,8 +16,7 @@ var bases = {
 };
 
 var paths = {
- scripts: ['js/**/*.js', '!scripts/libs/**/*.js'],
- libs: ['font-awesome/**/*.*', 'scripts/libs/jquery/dist/jquery.js', 'scripts/libs/underscore/underscore.js', 'scripts/backbone/backbone.js'],
+ scripts: ['js/jquery.js', 'js/bootstrap.js', 'js/jquery.easing.min.js', 'js/classie.js', 'js/cbpAnimatedHeader.js', 'js/cbpAnimatedHeader.js', 'js/jqBootstrapValidation.js', 'js/contact_me.js', 'js/agency.js'],
  styles: ['css/**/*.css'],
  less: ['less/**/*.less'],
  html: ['index.html', '404.html'],
@@ -28,7 +27,8 @@ var paths = {
 // Process scripts and concatenate them into one output file
 gulp.task('scripts', function() {
  gulp.src(paths.scripts, {cwd: bases.app})
- .pipe(gulp.dest(bases.dist + 'js/'));
+ .pipe(concat('scripts.js'))
+ .pipe(gulp.dest(bases.dist));
 });
 
 // Imagemin images and ouput them in dist
@@ -47,10 +47,6 @@ gulp.task('copy', function() {
   // Copy html
   gulp.src(paths.html, {cwd: bases.app})
   .pipe(gulp.dest(bases.dist));
-
- // Copy lib scripts, maintaining the original directory structure
- gulp.src(paths.libs, {cwd: 'app/**'})
- .pipe(gulp.dest(bases.dist));
 
  // Copy extra html5bp files
  gulp.src(paths.extras, {cwd: bases.app})
