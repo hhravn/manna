@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Anne-Margrethe Manna Olsson</title>
+    <link>https://mannaolsson.dk/</link>
+    <description>Recent content on Anne-Margrethe Manna Olsson</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>da</language>
+    <atom:link href="https://mannaolsson.dk/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>
