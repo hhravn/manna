@@ -1,3 +1,4 @@
+publishDir = "docs"
 baseURL = "https://mannaolsson.dk/"
 # include content marked as draft
 buildDrafts = false
