@@ -28,7 +28,7 @@ _merge = "none"
   # use [params.contact.email] instead.
   #email = "john.doe@example.com"
   description = "Landing Page"
-  bio = "" #"First Row.  \nSecond Rowsss."
+  bio = "Kender du din krops sprog? \n Genkender du fornemmelsen af forpustet rastløshed og uro? \n Eller er du omvendt tung og træt på den dér måde, hvor det ikke kan klares med en god nats søvn? \n Har du mistet forbindelsen - til andre mennesker? Din krop? Jorden under dine fødder? \n Oplevelser, der er ubehagelige eller overvældende, lagres i vores autonome nervesystem. Det bliver “låst” og vi kan få svært ved at skifte gear. \n Forestil dig at det kan ændre sig - det kan det nemlig."
   avatar = "img/mugshot.png"
   favicon = "img/favicon.ico"
   error404 = "There is no such page."
