@@ -1,70 +1,342 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta name="generator" content="Hugo 0.124.1">
-  <meta charset="utf-8">
-  <title>Anne-Margrethe Manna Olsson</title>
-  <meta name="description" content="Landing Page">
-  <meta name="author" content="Anne-Margrethe 
- Manna Olsson">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://mannaolsson.dk/css/fonts.css" type="text/css">
-  <link rel="stylesheet" href="https://mannaolsson.dk/css/normalize.css">
-  <link rel="stylesheet" href="https://mannaolsson.dk/css/all.min.css">
-  <link rel="stylesheet" href="https://mannaolsson.dk/css/vncnt.css">
-  
-   
 
-  <link rel="shortcut icon" href="./img/favicon.ico">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Anne-Margrethe Manna Olsson. Kender du din krops sprog? Genkender du fornemmelsen af forpustet rastløshed og uro? Eller er du omvendt tung og træt på den dér måde, hvor det ikke kan klares med en god nats søvn? Har du mistet forbindelsen - til andre mennesker? Din krop? Jorden under dine fødder? Oplevelser, der er ubehagelige eller overvældende, lagres i vores autonome nervesystem. Det bliver “låst” og vi kan få svært ved at skifte gear. Forestil dig at det kan ændre sig - det kan det nemlig.">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <title>Frontpage | MannaOlsson.dk</title>
+  <link href="./css/grid.css" rel="stylesheet">
+  <link href="./css/style.css" rel="stylesheet">
 </head>
+
 <body>
-  <div class="landingpage">
-    <div class="grid-container fivetoseven" role="main">
-      <div class="item" aria-label="Avatar">
-        <section id="avatar">
-          <img class="avatar" src="img/mugshot.png" alt="mugshot.png">
-        </section>
-      </div>
-      <div class="grid-container full autocenter">
-        <section id="bio" aria-label="Biography">
-          <h1 class="h3-like" aria-level="1" aria-label="Name">Anne-Margrethe 
- Manna Olsson</h1>
-          <p class="reset-margin" title="About" aria-label="About">Kender du din krops sprog?
-Genkender du fornemmelsen af forpustet rastløshed og uro?
-Eller er du omvendt tung og træt på den dér måde, hvor det ikke kan klares med en god nats søvn?
-Har du mistet forbindelsen - til andre mennesker? Din krop? Jorden under dine fødder?
-Oplevelser, der er ubehagelige eller overvældende, lagres i vores autonome nervesystem. Det bliver “låst” og vi kan få svært ved at skifte gear.
-Forestil dig at det kan ændre sig - det kan det nemlig.</p>
-        </section>
-        <section id="contact" aria-label="Contact">
-          <div class="icons" aria-label="Links">
-          <h2 class="h3-like" aria-label="Link Icons">
-            
-            
-              
-              
-              
-              
-              
-              <a class="icon" href="mailto:manna_mus@hotmail.com" target="_blank" rel="noopener me">
-              <i class="fas fa-envelope" title="email" aria-label="Go to email."></i>
-              
-            </a>
-              
-              <a class="icon" href="https://www.facebook.com/annemargrethe.olsson" target="_blank" rel="noopener">
-              <i class="fab fa-facebook" title="facebook" aria-label="Go to facebook."></i>
-              
-            </a>
-              
-              <a class="icon" href="https://www.linkedin.com/in/anne-margrethe-manna-olsson-90b5518/" target="_blank" rel="noopener">
-              <i class="fab fa-linkedin" title="linkedin" aria-label="Go to linkedin."></i>
-              
-            </a>
-          </h2>
-          </div>
-        </section>
-      </div>
-    </div>
+
+  <!-- enter btn! -->
+  <div id="enterBtnWrapper">
+    <a id="enterBtn">Kom<br/>ind</a>
   </div>
+
+  <!-- this should be sketchWrapper -->
+  <section id="sketchWrapper">
+    <canvas id="bgCanvas" class="cover" width="1024" height="1024" style="width: 807px; height: 807px; left: 0px; top: -34px;"></canvas>
+    <div id="bballElm" class="hidden"></div>
+    <canvas id="cloudCanvas" class="cover" width="1024" height="1024" style="width: 807px; height: 807px; left: 0px; top: -34px;"></canvas>
+    <canvas id="lineCanvas" class="cover hidden" width="1024" height="1024" style="width: 807px; height: 807px; left: 0px; top: -34px;"></canvas>
+    <div id="terminal" class="hidden"></div>
+  </section>
+
+
+  <!-- overlay -->
+  <section id="overlayWrapper">
+    <div class="inside">
+
+      <!-- ******************************************************************** -->
+      <!-- Dette er FORSIDEN -->
+      <div id="omSide">
+        <!-- <h2>Om Siden</h2> -->
+        <h2>Forside</h2>
+        <p>Jeg kan lide at undersøge hvordan lyd, bevægelse, farver og former gør noget forskelligt ved mig. Hvordan mit åndedræt kan mærke om tempoet i en bevægelse er tilpas… Hvordan kroppen føler sig velkommen når farverne har de perfekte nuancer… Hvordan bestemte lyde, ord eller teksturer kan få maven til at trække sig sammen… &mdash;og andre kan skabe plads…</p>
+        <p>Derfor ønskede jeg mig, at min hjemmeside også kunne være en slags eksperimentarium, hvor besøgende kan få mulighed for netop det: At lytte… At betragte… At registrere impulser til for eksempel at skrue op for lyden eller lukke øjnene...</p>
+        <p>Her er fri entre&mdash;vær så god </p>
+
+        <h3>Læs mere</h3>
+        <p></p>
+        <ul>
+          <li><a id="lidtOmMigBtn">Lidt om mig...</a></li>
+          <li><a id="somaticBtn">Somatic Experiencing®</a></li>
+          <li><a id="musikterapiBtn">Musikterapi</a></li>
+          <li><a id="intensiveInteractionBtn">Intensive Interaction</a></li>
+          <li><a id="minMissionBtn">Min mission</a></li>
+          <li><a id="saadanBtn">Priser og praktisk info</a></li>
+          <li><a id="dinTryghedBtn">Din tryghed og sikkerhed</a></li>
+        </ul>
+        <p></p>
+        <h3>Kontakt</h3>
+        <p>
+          Email: <a href="mailto:manna_mus@hotmail.com" target="_blank">manna_mus[at]hotmail.com</a><br>
+          Telefon: (+45) 24 80 28 16
+        </p>
+
+        <div id="SoMeWrapper" aria-label="social media">
+          <a class="icon" href="mailto:manna_mus@hotmail.com" target="_blank" rel="noopener me">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+              <path stroke="currentColor" fill="currentColor"
+                d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7 .3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2 .4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z">
+              </path>
+            </svg>
+          </a>
+          <a class="icon" href="https://www.facebook.com/annemargrethe.olsson" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+              <path stroke="currentColor" fill="currentColor"
+                d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.8 90.7 226.4 209.3 245V327.7h-63V256h63v-54.6c0-62.2 37-96.5 93.7-96.5 27.1 0 55.5 4.8 55.5 4.8v61h-31.3c-30.8 0-40.4 19.1-40.4 38.7V256h68.8l-11 71.7h-57.8V501C413.3 482.4 504 379.8 504 256z">
+              </path>
+            </svg>
+          </a>
+          <a class="icon" href="https://www.linkedin.com/in/anne-margrethe-manna-olsson-90b5518/" target="_blank"
+            rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+              <path stroke="currentColor" fill="currentColor"
+                d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z">
+              </path>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- ******************************************************************** -->
+      <!-- Somatic Sensing side -->
+      <div id="lidtOmMigSide" class="hidden">
+        <h2>Lidt om mig...</h2>
+
+        <p>Jeg kan godt lide farver, lyde, duften af citronskal, når andre mennesker bliver begejstrede og at røre ved forskellige overflader…<br />Jeg kan ikke lide melede æbler, at fryse, når nogen er uærlige…</p>
+
+        <p>Jeg har siden 2010 arbejdet indenfor specialområdet med børn, unge og voksne. Det har givet mig mange, mange erfaringer med betydningen af at ”være i kontakt”&mdash;både med sig selv og med andre.<br />Det har også vist mig, at mennesker grundlæggende søger det samme for at trives&mdash;uanset alder og forudsætninger: Tryghed og forbundethed&mdash;oplevelsen af at blive hørt og forstået&mdash;at blive mødt og føle sig velkommen.</p>
+        <p>Jeg er ansat på Djurslandsskolen som musikterapeut og Intensive Interaction koordinator.</p>
+
+        <p>Min uddannelsesmæssige baggrund i store træk:</p>
+        <ul class="bulletList">
+          <li><i>Traumeterapi</i>&mdash;Somatic experiencing Practitioner®, Coherence Traumehealing 2024</li>
+          <li><i>Basal kommunikation</i>&mdash;Intensive interaction koordinator, Intensive Interaction Danmark 2021</li>
+          <li><i>Musikterapi</i>&mdash;Uddannet cand. Mag. i musikterapi, Aalborg Universitet 2008</li>
+        </ul>
+
+        <p><img src="/images/PortraetManna.jpg" title="Manna Olsson" alt="Manna Olsson"></p>
+
+        <p><a class="backBtn">← Tilbage til forsiden</a></p>
+      </div>
+
+
+      <!-- ******************************************************************** -->
+      <!-- Musikterapi -->
+      <div id="musikterapiSide" class="hidden">
+        <h2>Musikterapi</h2>
+        <p>Musik kan rumme, ramme og regulere&mdash;sansninger, følelser og kontakten mellem mennesker.<br />
+        Kontakten, eller samspillet, mellem mennesker er musikalsk. Med nogen kan det være svært at <i>finde melodien</i>, mens vi med andre straks fornemmer, at vi <i>swinger godt sammen</i>.<br />
+        Når vi taler, trækker vejret og bevæger os, har vi en rytme, vores stemme har klang og hjerteslaget er vores puls.<br />
+        Vores kroppe og nervesystemer registrerer og reagerer på eks. stemningsskift i musik&mdash;både når vi lytter og når vi selv frembringer lyd.</p>
+
+        <p>Uddannelsen til musikterapeut er min base og mit faglige fundament, som jeg fortsat har suppleret med viden, om de nicher jeg har været særligt optaget af: Krop, kontakt og kommunikation og hvor forskelligt og nuanceret dét kan se ud.<br />
+        Musikterapi har ikke en bestemt form eller et fast indhold. Det afhænger helt af den enkeltes præferencer og ”personlige soundtrack” hvordan lyd, stilhed, bevægelse og pause kan være til stede i den terapeutisk proces.<br />
+        Du behøver ikke at spille et instrument.</p>
+
+        <p>Læs mere om musikterapi her: <a href="https://www.kommunikation.aau.dk/forskning/forskningsgrupper/forskningsgruppen-musikterapi/cedomus" target="_blank">Center for dokumentation og forskning i Musikterapi (CEDOMUS) - Aalborg Universitet</a></p>
+        <p><a class="backBtn">← Tilbage til forsiden</a></p>
+      </div>
+
+
+      <!-- ******************************************************************** -->
+      <!-- Intensive interaction -->
+      <div id="intensiveInteractionSide" class="hidden">
+        <h2>Intensive Interaction<br/>&mdash;<i>når kontakten ikke kommer af sig selv</i></h2>
+        <p>Muligheden for social kontakt, at kunne dele sin verden med et andet menneske og at opleve at høre til er basale behov, som er helt afgørende for vores trivsel.<br />
+        Nogle gange kommer det ikke af sig selv…</p>
+
+        <p>Med et ønske om at blive en bedre lytter og legekammerat har jeg siden 2015 været optaget af en&mdash;oprindelig specialpædagogisk tilgang&mdash;intensive interaction.</p>
+
+        <p>Intensive Interaction er en tilgang, der er rettet direkte mod at fremme kommunikation og samspil med mennesker, med kommunikative handicaps, bl.a. autisme-spektrum-tilstande, intellektuelle handicaps, udviklingsforstyrrelser og -forsinkelser.</p>
+
+        <p>Tilgangen er baseret på omfattende viden fra udviklingspsykologien. Herfra ved vi, at for at lære at være i kontakt, må det ske gennem trygt, meningsfuldt samspil, hvor der er plads og tid til, at det menneske, der har mindst erfaring med at kommunikere får mest indflydelse.</p>
+
+        <p>Mennesker med kommunikative handicaps har ikke mindre brug for psykoterapi end andre. Derfor har mit fokus været på, hvordan II kan styrke og spille sammen med en terapeutisk indsats.</p>
+
+        <p>Læs mere om II her: <a href="https://intensiveinteraction.dk/" target="_blank">Forside - Intensive Interaction Danmark</a></p>
+        <p><a class="backBtn">← Tilbage til forsiden</a></p>
+      </div>
+
+
+      <!-- ******************************************************************** -->
+      <!-- Somatic Sensing side -->
+      <div id="somaticSide" class="hidden">
+        <h2>Somatic<br>Experiencing (SE)&mdash;<br /><i>når kroppen husker&mdash;og vi lytter</i></h2>
+        <p>Når vi er udsat for en trussel, reagerer vi instinktivt med kamp eller flugt. Hvis ingen af delene er muligt, reagerer vi med fastfrysning&mdash;dvs. en høj grad af ”aktivering” af nervesystemet, dét vi oplever som spænding og anspændthed. </p>
+
+        <p>Hvis vores nervesystem for længe er for meget på arbejde, kan vi for eksempel opleve:</p>
+        <ul class="bulletList">
+          <li>Uro&mdash;i kroppen, hovedet eller begge dele</li>
+          <li>Irritation&mdash;måske uden indlysende årsag</li>
+          <li>Følelse af tomhed&mdash;alt bliver ligegyldigt</li>
+          <li>Øget sensitivitet (lyd, lys, lugte, smagsindtryk, konsistenser, berøring, bad,
+            materialer/underlag/omgivelser)</li>
+          <li>Søvnbesvær&mdash;svært ved at falde i søvn/sove igennem, sover meget eller meget lidt</li>
+          <li>Manglende lyst&mdash;til at være social, til at spise, til at stå op, til at gøre ting du plejer at kunne
+            lide</li>
+          <li>Tristhed</li>
+          <li>Følelsen af at være udenfor eller ved siden af</li>
+          <li>Smerter og spændinger</li>
+        </ul>
+
+        <p>Ovenstående symptomer kan være tegn på, at vi har fået en ”skade i tryghedssystemet”.</p>
+
+        <p>SE er en tilgang, der nænsomt arbejder med kroppens tilstand og kapacitet til at balancere spænding og afspænding. Processens omdrejningspunkt er opmærksomheden på kroppens impulser, sansninger og forandringer og vil foregå i et tempo, der er trygt og tilpas.</p>
+
+        <p>Hvis alle indtryk og fornemmelser opleves lige intenst, kan kroppen blive et utrygt sted at være. Trykket fra en fyldt blære, hjertets slag og det at trække vejret kan skabe uro.
+        Når man ikke selv kan rumme og regulere ubehag kan det betyde at der er situationer/personer/steder/oplevelser man undgår.<br />
+        Nervesystemet har brug for, i sit eget tempo, at lære at genkende tryghed og sikkerhed, at skelne behag fra ubehag.<br />
+        Det kan vi undersøge i terapien.</p>
+
+        <p>Læs mere om SE her: <a href="https://somaticexperiencing.dk/hvad-er-se/somatic-experiencing/" target="_blank">Hvad er SE? Bliv klogere på Somatic Experiencing® her</a></p>
+        <p><a class="backBtn">← Tilbage til forsiden</a></p>
+      </div>
+
+
+      <!-- ******************************************************************** -->
+      <!-- Min mission&mdash;terapi på dine præmisser -->
+      <div id="minMissionSide" class="hidden">
+        <h2>Min mission&mdash;<br />terapi på dine præmisser</h2>
+        <p>Alle har ret til psykoterapi på en måde, der giver mening&mdash;det vil blandt andet sige at blive mødt i og med sin foretrukne kommunikation.<br />
+        Har man eks. en atypisk måde at kommunikere på, et nervesystem der sanser og lagrer alle indtryk, en krop der ”snakker” og et hoved, der aldrig holder fri, er der brug for en terapeutisk ramme der påskønner og tager udgangspunkt i lige præcis det. Det kan også være, du ganske enkelt foretrækker et terapeutisk rum, hvor der skrues ned for samtalen for at give plads til noget andet.<br/>Det vil jeg gerne tilbyde.</p>
+        <p><a class="backBtn">← Tilbage til forsiden</a></p>
+      </div>
+
+
+      <!-- ******************************************************************** -->
+      <!-- Sådan foregår det - priser og praktisk info  -->
+      <div id="saadanSide" class="hidden">
+        <h2>Priser og praktisk info&mdash;<br />sådan foregår det</h2>
+        <p>Prisen for 60 minutters terapi er i udgangspunktet 800 kr.<br />
+        Som Studerende/arbejdsledig/pensionist betaler du 720 kr.</p>
+        <p>Måske er en hel time meget lang tid for dig. Derfor er det muligt at booke halve timer à 30 minutter.<br />
+        Her er satsen 400 kr. - 360 kr. til reduceret pris.</p>
+        <p>Betaling på mobilepay eller via bankoverførsel.</p>
+        <p>Jeg har lokale i Ryesgade 29, 3. sal, 8000 Århus C. Der er gode bus- og togforbindelser.</p>
+
+        <p><img src="images/Ryesgade29.jpg" alt=""></p>
+
+        <p>Hvis du foretrækker at være i kendte rammer, kommer jeg gerne til dig – enten inde eller ude.<br/> Indenfor Ringvejen uden beregning. Ved større afstande beregnes transport efter gældende satser.</p>
+        <p>Bamser, bolde, dukker, bløde tæpper, glatte sten, yndlings-biler, Ipads, kasketter, kaffekrus, hættetrøjer og andre trygheds-ting er velkomne.</p>
+        <p>Det er på nuværende tidspunkt muligt at booke tider i Ryesgade om lørdagen.</p>
+        <p>Er du forælder eller fagperson og ønsker at høre nærmere om terapi eller evt. vejledningsforløb så tag endelig kontakt.</p>
+        <p>Mobil: 24802816 - jeg har ikke fast telefontid. Læg en besked, send en sms eller kontakt mig pr. mail.<br />
+        Mail: <a href="mailto:manna_mus@hotmail.com">manna_mus[at]hotmail.com</a></p>
+        <p><a class="backBtn">← Tilbage til forsiden</a></p>
+      </div>
+
+      <!-- ******************************************************************** -->
+      <!-- Sådan foregår det - priser og praktisk info  -->
+      <div id="dinTryghedSide" class="hidden">
+        <h2>Din tryghed<br/>og sikkerhed</h2>
+        <p>Jeg er medlem af Dansk Musikterapeutforening, Psykoterapeut MPF og SE®-Practitioner og derfor underlagt både tavshedspligt og de gældende etiske retningslinjer.</p>
+
+        <div class="logoWrapper">
+          <img src="/images/Logos/DMTFlogo.png" alt="Dansk Musikterapeutforening">
+          <img src="/images/Logos/DPFOlogo.png" alt="Dansk Psykoterapeutforening">
+          <!-- <img src="/images/Logos/SomaticLogo.png" alt="Somatic Experiencing"> -->
+          <img src="/images/Logos/SomaticReal.png" alt="Somatic Experiencing">
+        </div>
+
+        <p>
+          <a href="https://www.danskmusikterapi.dk/medlemskab/etiske-retningslinjer/" target="_blank">Etiske Retningslinjer - Dansk Musikterapeutforening</a><br />
+          <a href="https://psykoterapeutforeningen.dk/raadgivning-og-karriere/fag-og-etik/etikregler"
+            target="_blank">Etikregler&mdash;Dansk Psykoterapeutforening</a>
+        </p>
+
+        <p><a class="backBtn">← Tilbage til forsiden</a></p>
+      </div>
+
+
+    </div>
+  </section>
+
+  <!-- page wrapper -->
+  <div id="pageWrapper">
+
+    <header>
+      <div id="logo"><a id="logoBtn">Manna Olsson</a></div>
+      <div class="overlayBtnWrapper unselectable">
+        <a id="overlayBtn">
+          <!-- MENU icon -->
+          <svg id="menuIcon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            xml:space="preserve" width="36" height="36" viewBox="0 0 512 512">
+            <defs>
+              <path id="a" d="M59 190h396v132H59z" />
+            </defs>
+            <clipPath id="b">
+              <use xlink:href="#a" overflow="visible" />
+            </clipPath>
+            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="32" d="M75 206h364M75 306h364"
+              clip-path="url(#b)" />
+          </svg>
+          <!-- CLOSE button -->
+          <svg id="closeIcon" class="hidden" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="36" height="36"
+            viewBox="0 0 512 512">
+            <defs>
+              <path id="a_close" d="M112 111.613h289.387V401H112z" />
+            </defs>
+            <clipPath id="b_close">
+              <use xlink:href="#a_close" overflow="visible" />
+            </clipPath>
+            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="32"
+              d="M128 127.613 385.387 385M385.387 127.613 128 385" clip-path="url(#b_close)" />
+          </svg>
+        </a>
+      </div>
+
+      <!-- volume -->
+      <div id="muteWrapper" class="unselectable">
+        <a id="muteBtn">
+          <!-- UNMUTED sound button -->
+          <svg id="unMutedIcon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            xml:space="preserve" width="36" height="36" viewBox="0 0 512 512">
+            <defs>
+              <path id="a_unmute" d="M36 50h440v412H36z" />
+            </defs>
+            <clipPath id="b_unmute">
+              <use xlink:href="#a_unmute" overflow="visible" />
+            </clipPath>
+            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="32"
+              d="M415.556 152s100 104 0 208M355.444 191.52s62 64.48 0 128.96M272 67v379M140.721 324.721 272 446M140.721 186.279 272 66M52 187.64v136.72M52 187.64h87M52 324.36h87"
+              clip-path="url(#b_unmute)" />
+          </svg>
+          <!-- MUTED icon -->
+          <svg id="mutedIcon" class="hidden" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="36" height="36"
+            viewBox="0 0 512 512">
+            <defs>
+              <path id="a_mute" d="M36 50h440v412H36z" />
+            </defs>
+            <clipPath id="b_mute">
+              <use xlink:href="#a_mute" overflow="visible" />
+            </clipPath>
+            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="32"
+              d="M363.324 207.662 460 304.338M460 207.662l-96.676 96.676M272 67v379M140.721 324.721 272 446M140.721 186.279 272 66M52 187.64v136.72M52 187.64h87M52 324.36h87"
+              clip-path="url(#b_mute)" />
+          </svg>
+        </a>
+      </div>
+    </header>
+
+    <main id="mainWrapper">
+      <!-- nothing here ??? -->
+    </main>
+
+    <div class="audioFileWrapper">
+      <audio id="bballWorldMusic" src="./music/fromSpot/Canon.mp3" loop=""></audio>
+      <audio id="terminalWorldMusic" src="./music/fromSpot/Ox.mp3" loop=""></audio>
+      <audio id="terminalTyping" src="./music/fromSpot/Keyboard.mp3" loop=""></audio>
+      <audio id="terminalRhodes" src="./music/fromSpot/Weightless.mp3" loop=""></audio>
+      <audio id="cloudWorldMusic" src="./music/fromSpot/Serenade.mp3" loop=""></audio>
+    </div>
+
+    <footer>
+      <a id="bballWorldBtn"></a>
+      <a id="terminalWorldBtn"></a>
+      <a id="cloudWorldBtn"></a>
+      <!-- <a id="lineWorldBtn"></a> -->
+    </footer>
+
+    <div id="loadImageWrapper"></div>
+
+  </div>
+
+  <!-- scripts here -->
+  <script src="./js/index.js" type="module"></script>
+
 </body>
 </html>

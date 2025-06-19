@@ -1,0 +1,72 @@
+publishDir = "docs"
+baseURL = "https://mannaolsson.dk/"
+# include content marked as draft
+buildDrafts = false
+# include content with publishdate in the future
+buildFuture = false
+# include content already expired
+buildExpired = false
+# enable this to make all relative URLs relative to content root. Note that this does not affect absolute URLs.
+relativeURLs = true
+disableRSS = true
+enableRobotsTXT = true
+editor = "nano"
+languageCode = "da"
+language = "da"
+theme = "vncnt-hugo"
+title = "Anne-Margrethe Manna Olsson"
+
+_merge = "none"
+
+[permalinks]
+  fixed = ":title/"
+  posts = "posts/:slug/"
+
+[params]
+  author = "Anne-Margrethe \n Manna Olsson"
+  # email does still work but is deprecated.
+  # use [params.contact.email] instead.
+  #email = "john.doe@example.com"
+  description = "Landing Page"
+  bio = "Kender du din krops sprog? \n Genkender du fornemmelsen af forpustet rastløshed og uro? \n Eller er du omvendt tung og træt på den dér måde, hvor det ikke kan klares med en god nats søvn? \n Har du mistet forbindelsen - til andre mennesker? Din krop? Jorden under dine fødder? \n Oplevelser, der er ubehagelige eller overvældende, lagres i vores autonome nervesystem. Det bliver “låst” og vi kan få svært ved at skifte gear. \n Forestil dig at det kan ændre sig - det kan det nemlig."
+  avatar = "img/mugshot.png"
+  favicon = "img/favicon.ico"
+  error404 = "There is no such page."
+
+  [params.contact]
+    # the default fontawesome style in simple key-value pairs is "fab", i.e. brand icons
+    # github = "https://github.com/jdoe"
+    # instagram = "https://instagram.com/jdoe"
+    # twitter = "https://twitter.com/jdoe"
+    facebook = "https://www.facebook.com/annemargrethe.olsson"
+    linkedin = "https://www.linkedin.com/in/anne-margrethe-manna-olsson-90b5518/"
+    
+    # You may use (inline) tables for more versatility
+    # This allows sorting and even more icons.
+    # Just make sure not to mix key-value pairs, inline tables and tables,
+    # although keeping keeping this order is ok.
+    # See https://toml.io/en/v1.0.0 for details
+    # 0 = { name = "ello", icon = "ello", style = "fab", link = "" } # empty links are possible
+    # [params.contact.1] # key names are sorted lexicographically
+    #  name = "hiking club" # may be omitted. defaults to key name
+    #    icon = "hiking" # may be omitted. defaults to key name
+    #    style = "fas" # may be omitted. default = "fas"
+    #    link = "https://local-hiking.club"
+    [params.contact.email]
+      name = "email" # may be omitted. defaults to key name
+      icon = "envelope" # may be omitted. defaults to key name
+      style = "fas" # may be omitted. default = "fas"
+      link = "mailto:manna_mus@hotmail.com"
+    #  [params.contact.mastodon]
+    #    style = "fab" # may be omitted. default = "fas"
+    #    link = "https://example.social/@jdoe"
+      # By default rel="me" is not set
+      # For some services, it makes sense to set it though.
+      # This is the case for Mastodon (and Github) if you link back from these services.
+      # See
+      # https://microformats.org/wiki/rel-me and
+      # https://docs.joinmastodon.org/user/profile/#verification
+      # for more information.
+      # This defaults to false to cover the case of not having control over the linked site.
+      rel-me = true
+      

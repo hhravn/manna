@@ -1,0 +1,1126 @@
+@charset "utf-8";
+
+:root {
+  --text-color: #222222;
+  --bg-color: #FCFCFC;
+  --caption-color: rgba(21,34,85,0.65);
+  --pagePadding: 1rem;
+}
+
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.unselectable {
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+::-webkit-scrollbar {
+  width: 0.65em;
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,0.35);
+  border: none;
+}
+::-webkit-scrollbar-track {
+  box-shadow: none;
+  background-color: transparent;
+}
+
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* SITE SPECIFIC styling ++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-family: sans-serif; /* 'Inter', sans-serif; */
+  font-family: 'Chubbo-Variable';
+  font-size: 17px;
+  line-height: 1.35em; /* 1.4em; */
+  margin: 0px;
+  padding: 0px;
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
+
+#sketchWrapper {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  z-index: -1;
+}
+
+#sketchWrapper canvas {
+  position: fixed;
+  /* border: 1px solid black; */
+}
+
+
+#bballElm {
+  position: fixed;
+  inset: 0;
+  opacity: 1.0;
+  transition: opacity 1000ms ease;
+  /* border: 1px solid red; */
+}
+#bballElm.hidden {
+  opacity: 0;
+}
+/*
+#bballCanvas {
+  opacity: 1.0;
+  transition: opacity 1000ms ease;
+}
+#bballCanvas.hidden {
+  opacity: 0;
+}
+*/
+#cloudCanvas {
+  opacity: 1.0;
+  transition: opacity 1000ms ease;
+}
+#cloudCanvas.hidden {
+  opacity: 0;
+}
+#lineCanvas {
+  opacity: 1.0;
+  transition: opacity 1000ms ease;
+}
+#lineCanvas.hidden {
+  opacity: 0;
+}
+
+
+/* terminal */
+#terminal {
+  position: fixed;
+  inset: 0;
+  /* padding: 2em; */
+  background: transparent;
+  color: green;
+  /* font-family: monospace; */
+  /* font-size: 3em; */
+  line-height: 1.1em;
+  opacity: 1.0;
+  font-family: 'Playwrite AU NSW';
+  font-weight: normal;
+  opacity: 1;
+  /* transition: opacity 1000ms ease; */
+  transition: all 1000ms ease;
+  display: flex;
+  flex-direction: column; /* column-reverse; */
+  justify-content: end;
+  align-items: start;
+}
+#terminal.hidden {
+  opacity: 0;
+}
+
+/* CLOUD */
+#loadImageWrapper {
+  display: block;
+  height: 0px;
+  overflow: hidden;
+}
+
+/* background canvas */
+#bgCanvas {
+  position: fixed;
+  inset: 0;
+  width: 100dvw;
+  height: 100dvh;
+}
+
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* TYPE STUFF */
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal; /* 500;  */
+  line-height: 1.05em;
+  margin: 0px 0px 0.65em 0px;
+  letter-spacing: 0px;
+}
+h2 {
+  font-size: 2em; /* 2.5em; */
+  line-height: 1.05em;
+  padding: 0px;
+  letter-spacing: -0.0135rem;
+}
+h3 {
+  font-size: 1.5em;
+  padding: 0px;
+}
+
+p {
+  font-size: 1em;
+  margin: 0px 0px 1.5rem 0px;
+}
+
+/* INLINE LINKS */
+a { text-decoration: none; color: tomato; outline: 0; }
+a:active, a:focus { outline: 0; }
+a:hover { text-decoration: underline; outline: none; cursor: pointer; } 
+a img { border: 0px; }
+
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* BREATH BALL styles */
+
+.breathBall {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 0px; /* 1px solid purple; */
+  background-color: white;
+}
+
+.color_0 {
+  /* background-color: rgba(0,0,0,0.15); */
+  background: rgba(0, 0, 0, 0.15);
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.15) 100%);
+}
+.color_1 {
+  background-color: rgba(127,0,0,0.15); /* #0b5345; */
+}
+.color_2 {
+  background-color: rgba(127,0,127,0.25); /* purple; */
+}
+
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* TERMINAL styles */
+
+.temperWrapper {
+  margin: 0px 0px 0.65em 0px;
+}
+
+.temper_rund {
+  color: rgba(255,255,255,0.86);
+}
+
+.temper_kantet {
+  font-family: 'JetBrains Mono', monospace;
+  color: lightgreen;
+}
+
+.temper_mellem {
+  color: rgba(255,255,255,0.86); /* rgba(0,0,0,0.86); /* pink; */
+  font-family: "Inter", sans-serif;
+  /*
+  font-family: 'Satan Possessed';
+  font-size: 1.25em;
+  line-height: 1em;
+  */
+}
+
+/* BGs */
+.bgRund {
+  background-color: blue !important;
+}
+.bgMellem {
+  background-color: green !important; /* yellow !important; /* green !important; */
+}
+.bgKantet {
+  background-color: #222222 !important;
+}
+
+
+/* ************************************************************************** */
+/* main wrappers */
+
+footer {
+  position: fixed;
+  inset: auto 0 -0.3em 0;
+  min-height: max-content;
+  /* border: 1px solid red; */
+  display: grid;
+  grid-template-columns: repeat(4, max-content);
+  justify-content: center;
+  align-items: self-end;
+  grid-gap: 0.65em; /* 0.75em; */
+  z-index: 9000; /* 9999; */
+}
+footer a {
+  width: 3em;
+  height: 3em;
+  padding: 0 0.125em;
+  background-color: purple;
+  border-radius: 50%;
+  text-decoration: none;
+  text-align: center;
+  transition: margin 200ms;
+  box-shadow: 0px 8px 12px rgba(0,0,0,0.25);
+}
+footer a:hover {
+  margin: 0px 0px 0.4em 0px;
+  cursor: pointer;
+  border: 0px;
+}
+
+/* custom wobbles */
+footer a#bballWorldBtn {
+  margin-bottom: -0.15em;
+  background-color: lightcoral; /* darkblue; */
+  /*
+  background-image: url(../images/BBallThumb2.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  */
+}
+footer a#bballWorldBtn:hover {
+  margin-bottom: 0.1em;
+}
+/* TERMINAL world */
+footer a#terminalWorldBtn {
+  margin-bottom: -0.1em;
+  background-color: darkslategray;
+  /*
+  background-image: url(../images/TerminalThumb2.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  */
+}
+footer a#terminalWorldBtn:hover {
+  margin-bottom: 0.15em;
+}
+/* cloud world */
+footer a#cloudWorldBtn {
+  margin-bottom: -0.1em;
+  background-color: skyblue;
+  /*
+  background-image: url(../images/CloudThumb.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  */
+}
+footer a#cloudWorldBtn:hover {
+  margin-bottom: 0.15em;
+}
+
+/* fourth */
+/*
+footer a#fourthWorldBtn {
+  margin-bottom: -0.2em;
+  background-color: darkred;
+}
+footer a#fourthWorldBtn:hover {
+  margin-bottom: 0.2em;
+}
+*/
+
+/* ************************************************************************** */
+/* Other Wrappers */
+
+
+#enterBtnWrapper {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+#enterBtnWrapper a#enterBtn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 6em;
+  height: 6em;
+  background-color: #152255;
+  color: white;
+  text-align: center;
+  border-radius: 50%;
+}
+#enterBtnWrapper a#enterBtn:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#overlayWrapper {
+  position: fixed;
+  top: 0px;
+  /* right pos set in media queries */
+  height: 100dvh;
+  background-color: whitesmoke;
+  /* padding: var(--pagePadding) var(--pagePadding) calc(var(--pagePadding) * 3) var(--pagePadding); */
+  z-index: 9000;
+  transition: all 0.35s; /* 0.5 second transition effect to slide in the sidenav */
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+#overlayWrapper.shown {
+  right: 0px;
+  box-shadow: 0px 1px 64px rgba(0,0,0,0.15);
+}
+#overlayWrapper .inside {
+  max-width: 50ch;
+}
+
+#overlayWrapper ul {
+  list-style-type: none;
+  padding: 0px;
+}
+#overlayWrapper h2 {
+  margin-bottom: 1.5em;
+}
+#overlayWrapper ul.bulletList {
+  list-style-type: circle;
+  padding: 0px 1.5em;
+  margin-top: -1em;
+}
+
+
+.overlayBtnWrapper {
+  position: absolute;
+  top: -0.125em; /* 0px; */
+  right: 0px;
+  z-index: 9000; /* 9999; */
+}
+a#overlayBtn {
+  display: block;
+  width: 38px; /* 2.5em; */
+  height: 38px; /* 2.5em; */
+  background-color: transparent; /* #0b5345; */
+  border-radius: 50%;
+  /* border: 1px solid red; */
+  text-align: center;
+  line-height: 1.125em;
+  font-size: 1em;
+  color: var(--text-color);
+}
+a#overlayBtn:hover {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* mute button */
+#muteWrapper {
+  position: absolute;
+  top: -0.125em; /* 0px; */
+  right: 3em;
+  z-index: 9000;
+}
+a#muteBtn {
+  display: block;
+  width: 38px; /* 2.5em; */
+  height: 38px; /* 2.5em; */
+  background-color: transparent; /* darkgreen; */
+  border-radius: 50%;
+  /* border: 1px solid red; */
+  text-align: center;
+  line-height: 1.125em;
+  font-size: 1em;
+  color: var(--text-color);
+}
+a#muteBtn:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/*
+a#muteBtn svg {
+  display: block;
+  border: 1px solid green;
+}
+*/
+
+
+
+#mutedIcon.hidden,
+#unMutedIcon.hidden,
+#menuIcon.hidden,
+#closeIcon.hidden {
+  display: none;
+}
+
+
+/* SoMe icons */
+#SoMeWrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1.5em);
+  grid-gap: 0.75em;
+  justify-content: start; /* center */
+  align-items: center;
+}
+#SoMeWrapper a {
+  color: var(--text-color);
+}
+
+.logoWrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1em;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2em;
+}
+
+
+
+/* ***********************************************************' */
+/* Overlay pages */
+
+
+#omSide,
+#somaticSide,
+#musikterapiSide,
+#etikSide,
+#galleriSide {
+  display: block;
+}
+
+#overlayWrapper .hidden {
+  display: none;
+}
+
+
+
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* THERE ARE STYLESHEETS ATTACHED TO THIS formatting */
+
+/* grids */
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+@media screen {
+
+  body {
+    overflow-y: auto;
+  }
+
+  #pageWrapper {
+    width: 100%;
+    min-height: 100dvh;
+    display: grid;
+    grid-template-rows: max-content;
+    padding: var(--pagePadding);
+    margin: 0px;
+  }
+
+  #overlayWrapper {
+    right: -100dvw; /* 0px; */
+    width: 100dvw;
+    padding: var(--pagePadding) var(--pagePadding) calc(var(--pagePadding) * 4) var(--pagePadding);
+  }
+
+  header {
+    position: relative;
+    min-height: 5em;
+  }
+
+  #logo {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 8000;
+    max-width: 140px;
+  }
+  #logo a {
+    display: block;
+    font-size: 2em; /* 32px; */
+    line-height: 1em;
+    display: block;
+    width: auto;
+    float: left;
+    color: var(--text-color);
+    font-weight: normal; /* 500; */
+    z-index: 1000;
+  }
+  #logo a:hover {
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  #mainWrapper {
+    padding: 0px;
+    /* overflow: hidden; /* NOW IT does not collide with header on mobile!!! */
+    /* No wait i cant do that - i caNT HAVE SCALE EFX ON HOVER THEN */
+  }
+
+  
+  #terminal {
+    padding: 0.5em 0.5em 1.25em 0.5em;
+    font-size: 2em;
+  }
+
+}
+
+
+/* ***************************************************** */
+/* BREAK MEDIUM */
+
+@media (min-width: 650px) {
+
+  :root {
+    --pagePadding: 2rem;
+  }
+
+  #overlayWrapper {
+    padding: var(--pagePadding) var(--pagePadding) calc(var(--pagePadding) * 3) var(--pagePadding);
+  }
+
+  #terminal {
+    padding: 1em 1em 1.5em 1em;
+    font-size: 2.5em;
+  }
+
+  #logo {
+    max-width: none;
+  }
+
+}
+
+
+/* ***************************************************** */
+/* BREAK MEDIUM */
+
+@media (min-width: 800px) {
+
+  #overlayWrapper {
+    right: -50dvw; /* 0px; */
+    width: 50dvw;
+    padding: var(--pagePadding) var(--pagePadding) calc(var(--pagePadding) * 2) var(--pagePadding);
+  }
+
+
+}
+
+
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+@media screen and (min-width: 1024px) {
+
+  :root {
+    --pagePadding: 3rem;
+  }
+
+  #terminal {
+    padding: 1.5em 1.5em 1.5em 1.5em;
+    font-size: 2.75em;
+  }
+
+}
+
+
+
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+@media screen and (min-width: 1280px) {
+
+    #terminal {
+    padding: 1.5em 1.5em 1.5em 1.5em;
+    font-size: 3em;
+  }
+
+}
+
+
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+@media screen and (min-width: 1400px) {
+
+
+}
+
+
+
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+
+
+/* SPIKY font */
+@font-face {
+    font-family: 'Satan Possessed';
+    src: url('../fonts/SatanPossessed.woff2') format('woff2'),
+        url('../fonts/SatanPossessed.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+
+
+/* jetbrains-mono-300 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 300;
+  src: url('../fonts/jetbrains-mono-v20-latin-300.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* jetbrains-mono-300italic - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'JetBrains Mono';
+  font-style: italic;
+  font-weight: 300;
+  src: url('../fonts/jetbrains-mono-v20-latin-300italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* jetbrains-mono-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/jetbrains-mono-v20-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* jetbrains-mono-italic - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'JetBrains Mono';
+  font-style: italic;
+  font-weight: 400;
+  src: url('../fonts/jetbrains-mono-v20-latin-italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* jetbrains-mono-500 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../fonts/jetbrains-mono-v20-latin-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* jetbrains-mono-500italic - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'JetBrains Mono';
+  font-style: italic;
+  font-weight: 500;
+  src: url('../fonts/jetbrains-mono-v20-latin-500italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* jetbrains-mono-600 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 600;
+  src: url('../fonts/jetbrains-mono-v20-latin-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* jetbrains-mono-600italic - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'JetBrains Mono';
+  font-style: italic;
+  font-weight: 600;
+  src: url('../fonts/jetbrains-mono-v20-latin-600italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* jetbrains-mono-700 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/jetbrains-mono-v20-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* jetbrains-mono-700italic - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'JetBrains Mono';
+  font-style: italic;
+  font-weight: 700;
+  src: url('../fonts/jetbrains-mono-v20-latin-700italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* jetbrains-mono-800 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 800;
+  src: url('../fonts/jetbrains-mono-v20-latin-800.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* jetbrains-mono-800italic - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'JetBrains Mono';
+  font-style: italic;
+  font-weight: 800;
+  src: url('../fonts/jetbrains-mono-v20-latin-800italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+
+/* playwrite-au-nsw-100 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Playwrite AU NSW';
+  font-style: normal;
+  font-weight: 100;
+  src: url('../fonts/playwrite-au-nsw-v4-latin-100.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* playwrite-au-nsw-200 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Playwrite AU NSW';
+  font-style: normal;
+  font-weight: 200;
+  src: url('../fonts/playwrite-au-nsw-v4-latin-200.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* playwrite-au-nsw-300 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Playwrite AU NSW';
+  font-style: normal;
+  font-weight: 300;
+  src: url('../fonts/playwrite-au-nsw-v4-latin-300.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* playwrite-au-nsw-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Playwrite AU NSW';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/playwrite-au-nsw-v4-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+
+
+/**
+ * @license
+ *
+ * Font Family: Chubbo
+ * Designed by: Rafał Buchner
+ * URL: https://www.fontshare.com/fonts/chubbo
+ * © 2022 Indian Type Foundry
+ *
+ * Font Styles:
+ * Chubbo Variable(Variable font)
+ * Chubbo Variable Italic(Variable font)
+ * Chubbo Extralight
+ * Chubbo Extralight Italic
+ * Chubbo Light
+ * Chubbo Light Italic
+ * Chubbo Regular
+ * Chubbo Italic
+ * Chubbo Medium
+ * Chubbo Medium Italic
+ * Chubbo Bold
+ * Chubbo Bold Italic
+ *
+*/
+
+/**
+* This is a variable font
+* You can controll variable axes as shown below:
+* font-variation-settings: 'wght' 400.0 'wght' 700.0;
+*
+* available axes:
+* 'wght' (range from 200.0 to 700.0)
+* 'wght' (range from 200.0 to 700.0)
+*/
+
+
+@font-face {
+  font-family: 'Chubbo-Variable';
+  src: url('../fonts/Chubbo-Variable.woff2') format('woff2'),
+       url('../fonts/Chubbo-Variable.woff') format('woff'),
+       url('../fonts/Chubbo-Variable.ttf') format('truetype');
+       font-weight: 200 700;
+       font-display: swap;
+       font-style: normal;
+}
+
+
+/**
+* This is a variable font
+* You can controll variable axes as shown below:
+* font-variation-settings: 'wght' 400.0 'wght' 700.0;
+*
+* available axes:
+
+* 'wght' (range from 200.0 to 700.0)
+
+* 'wght' (range from 200.0 to 700.0)
+
+*/
+
+@font-face {
+  font-family: 'Chubbo-VariableItalic';
+  src: url('../fonts/Chubbo-VariableItalic.woff2') format('woff2'),
+       url('../fonts/Chubbo-VariableItalic.woff') format('woff'),
+       url('../fonts/Chubbo-VariableItalic.ttf') format('truetype');
+       font-weight: 200 700;
+       font-display: swap;
+       font-style: italic;
+}
+
+
+@font-face {
+  font-family: 'Chubbo-Extralight';
+  src: url('../fonts/Chubbo-Extralight.woff2') format('woff2'),
+       url('../fonts/Chubbo-Extralight.woff') format('woff'),
+       url('../fonts/Chubbo-Extralight.ttf') format('truetype');
+       font-weight: 200;
+       font-display: swap;
+       font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Chubbo-ExtralightItalic';
+  src: url('../fonts/Chubbo-ExtralightItalic.woff2') format('woff2'),
+       url('../fonts/Chubbo-ExtralightItalic.woff') format('woff'),
+       url('../fonts/Chubbo-ExtralightItalic.ttf') format('truetype');
+       font-weight: 200;
+       font-display: swap;
+       font-style: italic;
+}
+
+
+@font-face {
+  font-family: 'Chubbo-Light';
+  src: url('../fonts/Chubbo-Light.woff2') format('woff2'),
+       url('../fonts/Chubbo-Light.woff') format('woff'),
+       url('../fonts/Chubbo-Light.ttf') format('truetype');
+       font-weight: 300;
+       font-display: swap;
+       font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Chubbo-LightItalic';
+  src: url('../fonts/Chubbo-LightItalic.woff2') format('woff2'),
+       url('../fonts/Chubbo-LightItalic.woff') format('woff'),
+       url('../fonts/Chubbo-LightItalic.ttf') format('truetype');
+       font-weight: 300;
+       font-display: swap;
+       font-style: italic;
+}
+
+
+@font-face {
+  font-family: 'Chubbo-Regular';
+  src: url('../fonts/Chubbo-Regular.woff2') format('woff2'),
+       url('../fonts/Chubbo-Regular.woff') format('woff'),
+       url('../fonts/Chubbo-Regular.ttf') format('truetype');
+       font-weight: 400;
+       font-display: swap;
+       font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Chubbo-Italic';
+  src: url('../fonts/Chubbo-Italic.woff2') format('woff2'),
+       url('../fonts/Chubbo-Italic.woff') format('woff'),
+       url('../fonts/Chubbo-Italic.ttf') format('truetype');
+       font-weight: 400;
+       font-display: swap;
+       font-style: italic;
+}
+
+
+@font-face {
+  font-family: 'Chubbo-Medium';
+  src: url('../fonts/Chubbo-Medium.woff2') format('woff2'),
+       url('../fonts/Chubbo-Medium.woff') format('woff'),
+       url('../fonts/Chubbo-Medium.ttf') format('truetype');
+       font-weight: 500;
+       font-display: swap;
+       font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Chubbo-MediumItalic';
+  src: url('../fonts/Chubbo-MediumItalic.woff2') format('woff2'),
+       url('../fonts/Chubbo-MediumItalic.woff') format('woff'),
+       url('../fonts/Chubbo-MediumItalic.ttf') format('truetype');
+       font-weight: 500;
+       font-display: swap;
+       font-style: italic;
+}
+
+
+@font-face {
+  font-family: 'Chubbo-Bold';
+  src: url('../fonts/Chubbo-Bold.woff2') format('woff2'),
+       url('../fonts/Chubbo-Bold.woff') format('woff'),
+       url('../fonts/Chubbo-Bold.ttf') format('truetype');
+       font-weight: 700;
+       font-display: swap;
+       font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Chubbo-BoldItalic';
+  src: url('../fonts/Chubbo-BoldItalic.woff2') format('woff2'),
+       url('../fonts/Chubbo-BoldItalic.woff') format('woff'),
+       url('../fonts/Chubbo-BoldItalic.ttf') format('truetype');
+       font-weight: 700;
+       font-display: swap;
+       font-style: italic;
+}
+
+
+/* ****************************************************************************** */
+
+
+/* inter-100 - latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100;
+  src: url('../fonts/inter-v7-latin-100.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('../fonts/inter-v7-latin-100.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/inter-v7-latin-100.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/inter-v7-latin-100.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/inter-v7-latin-100.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/inter-v7-latin-100.svg#Inter') format('svg'); /* Legacy iOS */
+}
+/* inter-200 - latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 200;
+  src: url('../fonts/inter-v7-latin-200.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('../fonts/inter-v7-latin-200.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/inter-v7-latin-200.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/inter-v7-latin-200.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/inter-v7-latin-200.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/inter-v7-latin-200.svg#Inter') format('svg'); /* Legacy iOS */
+}
+/* inter-300 - latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  src: url('../fonts/inter-v7-latin-300.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('../fonts/inter-v7-latin-300.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/inter-v7-latin-300.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/inter-v7-latin-300.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/inter-v7-latin-300.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/inter-v7-latin-300.svg#Inter') format('svg'); /* Legacy iOS */
+}
+/* inter-regular - latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/inter-v7-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('../fonts/inter-v7-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/inter-v7-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/inter-v7-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/inter-v7-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/inter-v7-latin-regular.svg#Inter') format('svg'); /* Legacy iOS */
+}
+/* inter-500 - latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../fonts/inter-v7-latin-500.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('../fonts/inter-v7-latin-500.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/inter-v7-latin-500.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/inter-v7-latin-500.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/inter-v7-latin-500.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/inter-v7-latin-500.svg#Inter') format('svg'); /* Legacy iOS */
+}
+/* inter-600 - latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  src: url('../fonts/inter-v7-latin-600.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('../fonts/inter-v7-latin-600.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/inter-v7-latin-600.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/inter-v7-latin-600.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/inter-v7-latin-600.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/inter-v7-latin-600.svg#Inter') format('svg'); /* Legacy iOS */
+}
+/* inter-700 - latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/inter-v7-latin-700.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('../fonts/inter-v7-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/inter-v7-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/inter-v7-latin-700.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/inter-v7-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/inter-v7-latin-700.svg#Inter') format('svg'); /* Legacy iOS */
+}
+/* inter-900 - latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 900;
+  src: url('../fonts/inter-v7-latin-900.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('../fonts/inter-v7-latin-900.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/inter-v7-latin-900.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/inter-v7-latin-900.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/inter-v7-latin-900.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/inter-v7-latin-900.svg#Inter') format('svg'); /* Legacy iOS */
+}
+/* inter-800 - latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 800;
+  src: url('../fonts/inter-v7-latin-800.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('../fonts/inter-v7-latin-800.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/inter-v7-latin-800.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/inter-v7-latin-800.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/inter-v7-latin-800.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/inter-v7-latin-800.svg#Inter') format('svg'); /* Legacy iOS */
+}
